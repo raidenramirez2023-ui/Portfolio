@@ -1,0 +1,183 @@
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    padding-top: 80px; /* added padding to avoid content hidden behind navbar */
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    position: fixed; /* changed from sticky to fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #121212;
+    z-index: 100;
+    height: 80px;          /* fixed height for consistent spacing */
+    line-height: 80px;     /* vertical centering */
+    padding-left: 20px;    /* match container padding */
+    padding-right: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Logo */
+nav .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: orangered;
+    letter-spacing: 1.2px;
+}
+
+/* Nav links */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    color: orange;
+    background-color: rgba(255, 165, 0, 0.15);
+}
+
+/* Hire Me Button */
+.btn-outline {
+    border: 2px solid orange;
+    color: orange;
+    background: transparent;
+    padding: 8px 18px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: orange;
+    color: #121212;
+}
+
+/* Content Section */
+.content-section {
+    margin-top: 0; /* no extra margin needed since container padding-top handles spacing */
+    text-align: center;
+}
+
+.content-section h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    color: orangered;
+    letter-spacing: 1.5px;
+}
+
+.content-section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: #ccc;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Project Card */
+.project-card {
+    background-color: #1f1f1f;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(255, 165, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(255, 165, 0, 0.5);
+}
+
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: orange;
+    font-weight: 700;
+}
+
+.project-card p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 18px;
+    }
+
+    .content-section h1 {
+        font-size: 34px;
+    }
+
+    .content-section p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+        line-height: normal;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .btn-outline {
+        width: 100%;
+        max-width: 200px;
+    }
+}

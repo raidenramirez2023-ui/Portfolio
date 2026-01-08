@@ -1,0 +1,467 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #111;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 80px;
+    background-color: rgba(17, 17, 17, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    backdrop-filter: saturate(180%) blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+nav:hover {
+    background-color: rgba(17, 17, 17, 1);
+}
+
+nav .logo {
+    font-weight: 700;
+    color: orangered;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+nav .logo:hover {
+    color: #ff4500;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    transition: left 0.3s ease;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 19px;
+    font-weight: 600;
+    color: #eee;
+    padding: 6px 12px;
+    border-radius: 8px;
+    user-select: none;
+}
+
+nav ul li:hover,
+nav ul .active {
+    color: orange;
+    background-color: rgba(255, 165, 0, 0.15);
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 28px;
+    height: 3.5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Mobile Sidebar */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background-color: #222;
+        width: 100%;
+        height: 100vh;
+        padding-top: 30px;
+        align-items: center;
+        display: flex;
+        gap: 25px;
+    }
+
+    nav ul.show {
+        left: 0;
+    }
+
+    nav ul li {
+        padding: 20px 0;
+        font-size: 22px;
+        border-radius: 0;
+    }
+
+    nav ul li:hover,
+    nav ul li.active {
+        background-color: rgba(255, 165, 0, 0.2);
+        color: orange;
+    }
+}
+
+/* Fix content positioning below fixed navbar */
+.container {
+    padding-top: 80px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 60px;
+    text-align: left;
+    animation: fadeInUp 1s ease-out;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Text */
+.content {
+    max-width: 550px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.content h1 {
+    font-size: 44px;
+    margin-bottom: 25px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    line-height: 1.1;
+}
+
+.content h2 {
+    color: orange;
+    font-size: 34px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.content p {
+    font-size: 20px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* Social Icons */
+.socials {
+    margin: 20px 0;
+}
+
+.socials span {
+    margin: 0 8px;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    color: #eee;
+}
+
+.socials span:hover {
+    transform: scale(1.3);
+    color: orange;
+}
+
+/* Buttons */
+.btn-primary, .btn-outline {
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 12px 20px 12px 0;
+    display: inline-block;
+    font-size: 18px;
+    transition: 0.3s ease;
+    user-select: none;
+}
+
+.btn-primary {
+    background-color: orange;
+    color: black;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.6);
+}
+
+.btn-primary:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 6px 18px rgba(255, 140, 0, 0.8);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2.5px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+}
+
+/* Stats */
+.stats {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: nowrap;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats div {
+    font-size: 18px;
+    color: #eee;
+}
+
+.stats div strong {
+    font-size: 26px;
+    color: orange;
+}
+
+/* Hero Image */
+.image {
+    animation: fadeInUp 1s ease-out 0.3s;
+    animation-fill-mode: both;
+}
+
+.image img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 5px solid orange;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+}
+
+.image img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.9);
+}
+
+/* Contact Section - more compact */
+.content-section {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 25px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    color: #eee;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: orange;
+}
+
+/* Contact Form - smaller spacing */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    align-self: flex-start;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    color: #ccc;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #222;
+    color: white;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button.btn-primary {
+    padding: 10px 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #0077b6;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button.btn-primary:hover {
+    background-color: #023e8a;
+}
+
+/* Contact Info - more compact */
+.contact-info {
+    margin-top: 30px;
+    padding: 16px;
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.contact-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: orange;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+.contact-info li {
+    margin-bottom: 12px;
+}
+
+.contact-info a {
+    color: #4ea8de;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #90e0ef;
+    text-decoration: underline;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 992px) {
+    .container {
+        padding-top: 70px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 100px 20px 40px;
+        height: auto;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 90%;
+    }
+
+    .content h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .content h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary, .btn-outline {
+        font-size: 14px;
+        margin-right: 12px;
+        padding: 8px 16px;
+    }
+
+    .image img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .container {
+        padding-top: 60px;
+    }
+
+    nav {
+        padding: 15px 20px;
+        height: 60px;
+        line-height: 60px;
+    }
+
+    nav .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content h2 {
+        font-size: 22px;
+    }
+
+    .btn-primary, .btn-outline {
+        padding: 8px 14px;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .image img {
+        width: 180px;
+        height: 180px;
+    }
+}

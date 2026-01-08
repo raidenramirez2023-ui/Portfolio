@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Ramirez Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+        }
+        
+        .blue-underline {
+            width: 60px;
+            height: 4px;
+            background: #3b82f6;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                    R
+                </div>
+                <span class="text-xl font-bold">Ramirez</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-gray-400">
+                <a href="/" class="hover:text-white transition">Home</a>
+                <a href="/about" class="text-blue-500 font-semibold">About</a>
+                <a href="/skills" class="hover:text-white transition">Skills</a>
+                <a href="/projects" class="hover:text-white transition">Projects</a>
+                <a href="/experience" class="hover:text-white transition">Experience</a>
+                <a href="/contact" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold mb-4">About Me</h1>
+                <div class="blue-underline"></div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="mb-12">
+                <p class="text-lg text-gray-400 leading-relaxed">
+                    {{ intro }}
+                </p>
+            </div>
+
+            <!-- Career Objective -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-semibold mb-4">Career Objective</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    {{ career_objective }}
+                </p>
+            </div>
+
+            <!-- Tech Stack Overview -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-semibold mb-6">Tech Stack Overview</h2>
+                <div class="flex flex-wrap gap-3">
+                    {% for tech in tech_stack %}
+                    <span class="px-5 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-700 transition">
+                        {{ tech }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

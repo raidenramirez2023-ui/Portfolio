@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ramirez Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+        }
+        
+        .blue-underline {
+            width: 60px;
+            height: 4px;
+            background: #3b82f6;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                    R
+                </div>
+                <span class="text-xl font-bold">Ramirez</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-gray-400">
+                <a href="/" class="hover:text-white transition">Home</a>
+                <a href="/about" class="hover:text-white transition">About</a>
+                <a href="/skills" class="hover:text-white transition">Skills</a>
+                <a href="/projects" class="text-blue-500 font-semibold">Projects</a>
+                <a href="/experience" class="hover:text-white transition">Experience</a>
+                <a href="/contact" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Content -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold mb-4">Projects</h1>
+                <div class="blue-underline"></div>
+            </div>
+<!-- Projects Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for project in projects %}
+    <div class="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition group">
+        <!-- Project Image -->
+        <div class="h-48 bg-gray-800 flex items-center justify-center overflow-hidden">
+            <img src="{{ url_for('static', filename='ramirez.png') }}" 
+                 alt="{{ project.title }}" 
+                 class="h-full w-full object-contain">
+        </div>
+        
+        <!-- Project Content -->
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-500 transition">{{ project.title }}</h3>
+            <p class="text-gray-400 text-sm mb-4 leading-relaxed">{{ project.description }}</p>
+            
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2 mb-4">
+                {% for tech in project.technologies %}
+                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs text-blue-400">
+                    {{ tech }}
+                </span>
+                {% endfor %}
+            </div>
+            
+            <!-- Live Demo Link -->
+            <div class="flex gap-4 text-sm">
+                <a href="https://food-app-ruby-kappa.vercel.app/" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-blue-500 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    Live Demo
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    {% endfor %}
+</div>
